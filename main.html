@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .header {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 48px;
+        font-weight: bold;
+    }
+    .text {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .balloon {
+        background-color: #f0f0f0;
+        border-radius: 200px;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-width: 800px;
+        position: relative;
+    }
+
+
+
+    img {
+        display: block;
+        margin-bottom: 20px;
+        width: 200px;
+        height: auto;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* ボタンを中央揃えにする */
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+        おすすめ言語占い
+</div>
+<div class="container">
+    <div class="balloon">
+        <p id="QuestionP" class ="text">Question</p>
+    </div>
+    <img src="pictures/gengo_sennin.jpg" alt="gengo_sennin">
+</div>
+
+<div class="button-container">
+    <button id="yes_button" onclick="yes()">はい</button>
+    <button id="no_button" onclick="no()">いいえ</button>
+</div>
+
+</body>
+<script>
+    function yes(){
+        NowQuestion = QuestionList[NowQuestion]["IfYes"]
+        var QuestionP = document.getElementById("QuestionP")
+        QuestionP.textContent = QuestionList[NowQuestion]["Question"]
+    }
+    function no(){
+        NowQuestion = QuestionList[NowQuestion]["IfNo"]
+        var QuestionP = document.getElementById("QuestionP")
+        QuestionP.textContent = QuestionList[NowQuestion]["Question"]
+    }
+    NowQuestion = 0
+    QuestionList = [
+        {
+            "Question":"わしは言語仙人。おぬしの学習すべき言語を質問から導き出してやろう。始めるには「はい」を押すのじゃ。",
+            "IfYes":1,
+            "IfNo":1
+        }, //0
+        {
+            "Question":"語学が好きですか？",
+            "IfYes":34,
+            "IfNo":2
+        }, //1
+        {
+            "Question":"ロマンチストですか？",
+            "IfYes":3,
+            "IfNo":10
+        }, //2
+        {
+            "Question":"巻き舌ができますか？",
+            "IfYes":4,
+            "IfNo":7
+        }, //3
+        { 
+            "Question":"英語が好きだ。",
+            "IfYes":5,
+            "IfNo":6
+        }, //4
+        {
+            "Question":"おぬしのおすすめ言語は、スペイン語じゃ！",
+            "IfYes":0,
+            "IfNo":0,
+            "goto":"spanish.html"
+        }, //5
+        {
+            "Question":"おぬしのおすすめ言語は、イタリア語じゃ！",
+            "IfYes":0,
+            "IfNo":0,
+            "goto":"spanish.html"
+        },//6
+        {
+            "Question":"寒いより暑いほうが好きだ。",
+            "IfYes":8,
+            "IfNo":9
+        }, //7
+        {
+            "Question":"おぬしのおすすめ言語は、ポルトガル語じゃ！",
+            "IfYes":0,
+            "IfNo":0,
+        }, //8
+        {
+            "Question":"おぬしのおすすめ言語は、フランス語じゃ！",
+            "IfYes":0,
+            "IfNo":0
+        }, //9
+        {
+            "Question":"英語が好きだ。",
+            "IfYes":11,
+            "IfNo":15
+        },//10
+        {
+            "Question":"新しい物好きだ。",
+            "IfYes":13,
+            "IfNo":12
+        }, //11
+        {
+            "Question":"あなたのおすすめ言語は、英語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //12
+        {
+            "Question":"あなたのおすすめ言語は、ドイツ語です。"
+        },//13
+        {
+            "Question":"漢字が好きだ。",
+            "IfYes":14,
+            "IfNo":18
+        }, //14
+        {
+            "Question":"めんどくさがりだ。",
+            "IfYes":16,
+            "IfNo":17
+        }, //15
+        {
+            "Question":"あなたのおすすめ言語は、中国語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //16
+        {
+            "Question":"あなたのおすすめ言語は、広東語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //17
+        {
+            "Question":"あなたのおすすめ言語は、朝鮮語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //18
+        {
+            "Question":"知っている文字で学びたい",
+            "IfYes":20,
+            "IfNo":0
+        }, //19
+        {
+            "Question":"英語が好きだ。",
+            "IfYes":21,
+            "IfNo":25
+        }, //20
+        {
+            "Question":"童話が好きだ。",
+            "IfYes":22,
+            "IfNo":23
+        }, //21
+        {
+            "Question":"あなたのおすすめ言語は、デンマーク語です。"
+        }, //22
+        {
+            "Question":"あなたのおすすめ言語は、スウェーデン語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //23
+        {
+            "Question":"寒いより暖かいほうが好きだ。",
+            "IfYes":25,
+            "IfNo":26
+        }, //24
+        {
+            "Question":"あなたのおすすめ言語は、インドネシア語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //25
+        {
+            "Question":"体を温めるのなら、酒を飲むよりサッカーをする。",
+            "IfYes":28,
+            "IfNo":27
+        }, //26
+        {
+            "Question":"あなたのおすすめ言語は、ロシア語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //27
+        {
+            "Question":"あなたのおすすめ言語は、カタルーニャ語です。"
+        }, //28
+        {
+            "Question":"豚肉が好きですか？",
+            "IfYes":30,
+            "IfNo":31
+        }, //29
+        {
+            "Question":"あなたのおすすめ言語は、タイ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //30
+        {
+            "Question":"猫が好きですか？",
+            "IfYes":32,
+            "IfNo":33
+        }, //31
+        {
+            "Question":"あなたのおすすめ言語は、ペルシア語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //32
+        {
+            "Question":"あなたのおすすめ言語は、アラビア語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //33
+        {
+            "Question":"単語を楽に覚えたい",
+            "IfYes":35,
+            "IfNo":42
+        }, //34
+        {
+            "Question":"公用語を勉強したい。",
+            "IfYes":36,
+            "IfNo":37
+        }, //35
+        {
+            "Question":"あなたのおすすめ言語は、アラン語です。",
+            "IfYes":0,
+            "IfNo":0
+        },//36
+        {
+            "Question":"アラビア文字を使いたい。",
+            "IfYes":38,
+            "IfNo":39
+        }, //37
+        {
+            "Question":"あなたのおすすめ言語はモサラベ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //38
+        {
+            "Question":"ドイツ語経験はありますか？",
+            "IfYes":40,
+            "IfNo":41
+        }, //39
+        {
+            "Question":"あなたのおすすめ言語は、イディッシュ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //40
+        {
+            "Question":"あなたのおすすめ言語は、ラディノ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //41
+        {
+            "Question":"声調が好きだ。",
+            "IfYes":43,
+            "IfNo":44
+        }, //42
+        {
+            "Question":"あなたのおすすめ言語は、ヨルバ語です。",
+            "IfYes":0,
+            "IfNo":0
+        },//43
+        {
+            "Question":"人称を接辞で表したいか。",
+            "IfYes":46,
+            "IfNo":45
+        }, //44
+        {
+            "Question":"あなたのおすすめ言語は、古代教会スラヴ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //45
+        {
+            "Question":"日本人に馴染みがあったほうが良い",
+            "IfYes":47,
+            "IfNo":48
+        }, //46
+        {
+            "Question":"あなたのおすすめ言語は、アイヌ語です。",
+            "IfYes":0,
+            "IfNo":0
+        }, //47
+        {
+            "Question":"あなたのおすすめ言語は、エジプト語です。",
+            "IfYes":0,
+            "IfNo":0
+        } //48
+    ]
+    var QuestionP = document.getElementById("QuestionP")
+    QuestionP.textContent = QuestionList[NowQuestion]["Question"]
+</script>
